@@ -22,6 +22,7 @@ class BlockchainController {
     // Enpoint to Get a Block by Height (GET Endpoint)
     getBlockByHeight() {
         this.app.get("/block/:height", async (req, res) => {
+            console.log(this.blockchain.chain);
             if(req.params.height) {
                 if (!req.params.height.match(/^\d+$/)) {
                     return res.redirect('/block/:hash');

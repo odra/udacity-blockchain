@@ -71,10 +71,10 @@ class Block {
         let self = this;
 
         return new Promise((resolve, reject) => {
-            let data = JSON.parse(hex2ascii(self.body));
-            if (self.height == 0) {
-                return reject(data);
+            if (self.height === 0) {
+                return resolve(null);
             }
+            let data = JSON.parse(hex2ascii(self.body));
             return resolve(data);
         });
 
